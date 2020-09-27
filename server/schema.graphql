@@ -1,0 +1,11 @@
+type List {
+  id: ID!
+  imgUrl: String!
+  title: String!
+  desc: String!
+}
+
+type Query {
+  getAllItems: [List]!
+  getItem(id: ID!): List!
+}

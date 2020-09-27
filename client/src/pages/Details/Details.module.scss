@@ -1,0 +1,40 @@
+.Details {
+  display: flex;
+  margin-top: 40px;
+  &__img {
+    width: 300px;
+    height: 300px;
+    flex-shrink: 0;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &__text {
+    padding: 30px;
+    h2 {
+      color: #fafafa;
+      margin-top: 0;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .Details {
+    &__img {
+      width: 200px;
+      height: 200px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .Details {
+    flex-direction: column;
+    &__img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}

@@ -1,12 +1,13 @@
 import React from 'react';
 import { Route, Redirect, Switch, useHistory } from 'react-router-dom';
+import { AuthContext } from './context/auth';
 
 import classes from './App.module.scss';
 
 import Header from './components/Header/Header';
 import Content from './pages/Content/Content';
 import Auth from './pages/Auth/Auth';
-import { AuthContext } from './context/auth';
+import Details from './pages/Details/Details';
 
 function App() {
   const [user, setUser] = React.useState('');
@@ -27,13 +28,13 @@ function App() {
   let routes = (
     <Switch>
       <Route path="/auth" exact component={Auth} />
-      <Redirect to={'/auth'} />
     </Switch>
   );
   if (user) {
     routes = (
       <Switch>
         <Route path="/auth" component={Auth} />
+        <Route path="/details/:id" component={Details} />
         <Route path="/" exact component={Content} />
         <Redirect to={'/'} />
       </Switch>

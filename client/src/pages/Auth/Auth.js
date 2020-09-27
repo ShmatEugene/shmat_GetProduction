@@ -1,4 +1,5 @@
 import React from 'react';
+import { AuthContext } from '../../context/auth';
 import Button from '../../components/UI/Button/Button';
 import Input from '../../components/UI/Input/Input';
 import classes from './Auth.module.scss';
@@ -36,6 +37,7 @@ function createFormControls() {
 export default function Auth() {
   const [isFormValid, setIsFormValid] = React.useState(false);
   const [formControls, setFormControls] = React.useState(createFormControls());
+  const { setUser } = React.useContext(AuthContext);
 
   //form validation
   function validateControl(value, validation) {
@@ -73,10 +75,6 @@ export default function Auth() {
     setFormControls(form);
   };
 
-  const buttonClickHandler = (data) => {
-    setFormControls(createFormControls());
-  };
-
   function renderInputs() {
     return Object.keys(formControls).map((controlName, index) => {
       const control = formControls[controlName];
@@ -103,7 +101,7 @@ export default function Auth() {
       <div className={classes.Auth}>
         <h2 className={classes.Auth__title}>Авторизация</h2>
         {renderInputs()}
-        <Button disabled={!isFormValid} onClick={() => buttonClickHandler(formControls)}>
+        <Button disabled={!isFormValid} onClick={() => setUser(formControls.login.value)}>
           Войти
         </Button>
       </div>

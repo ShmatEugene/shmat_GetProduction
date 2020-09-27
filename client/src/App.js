@@ -1,25 +1,52 @@
 import React from 'react';
-import { Route, Redirect, Switch } from 'react-router-dom';
+import { Route, Redirect, Switch, useHistory } from 'react-router-dom';
 
 import classes from './App.module.scss';
 
 import Header from './components/Header/Header';
 import Content from './pages/Content/Content';
 import Auth from './pages/Auth/Auth';
+import { AuthContext } from './context/auth';
 
 function App() {
+  const [user, setUser] = React.useState('');
+  const history = useHistory();
+
+  React.useEffect(() => {
+    setUser(localStorage.getItem('user'));
+  }, []);
+
+  //login handler
+  const setUserLogin = (login) => {
+    localStorage.setItem('user', login);
+    setUser(login);
+    history.push('/');
+  };
+
+  //create routes depending on whether the user is logged in
   let routes = (
     <Switch>
-      <Route path="/auth" component={Auth} />
-      <Route path="/" exact component={Content} />
-      <Redirect to={'/'} />
+      <Route path="/auth" exact component={Auth} />
+      <Redirect to={'/auth'} />
     </Switch>
   );
+  if (user) {
+    routes = (
+      <Switch>
+        <Route path="/auth" component={Auth} />
+        <Route path="/" exact component={Content} />
+        <Redirect to={'/'} />
+      </Switch>
+    );
+  }
+
   return (
-    <div className={classes.wrapper}>
-      <Header />
-      {routes}
-    </div>
+    <AuthContext.Provider value={{ user, setUser: setUserLogin }}>
+      <div className={classes.wrapper}>
+        <Header />
+        {routes}
+      </div>
+    </AuthContext.Provider>
   );
 }
 

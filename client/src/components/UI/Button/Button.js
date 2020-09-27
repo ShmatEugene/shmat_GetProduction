@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './Button.module.scss';
 
 export default function Button(props) {
-  const cls = [classes.Button, classes[props.type] || classes.default];
+  const cls = [classes.Button, classes[props.type] || classes.Button_default];
 
   return (
     <button

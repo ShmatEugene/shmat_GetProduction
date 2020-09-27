@@ -1,0 +1,18 @@
+.Button {
+  padding: 8px 20px;
+  background: transparent;
+  border: 2px solid #da7953;
+  color: #da7953;
+  font-size: 0.9em;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  &:focus {
+    outline: none;
+  }
+  &:disabled {
+    pointer-events: none;
+    color: #999999;
+    border: 2px solid #999999;
+  }
+}

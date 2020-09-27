@@ -1,0 +1,20 @@
+//Fonts
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap');
+
+body {
+  margin: 0;
+  font-size: 16px;
+}
+
+p,
+span {
+  font-family: 'Montserrat', sans-serif;
+  color: #a4a4a4;
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

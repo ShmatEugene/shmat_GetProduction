@@ -1,0 +1,28 @@
+.Input {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  &__label {
+    color: #fafafa;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8em;
+  }
+  &__input {
+    background: #1c1c1c;
+    outline: none;
+    border: none;
+    padding: 7px;
+    color: #fafafa;
+    margin-top: 3px;
+    margin-bottom: 30px;
+  }
+  &__error {
+    position: absolute;
+    width: 100%;
+    font-size: 0.7em;
+    top: 40px;
+    p {
+      color: #f1b9c9;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+.Auth {
+  width: 350px;
+  padding: 20px;
+  margin: 0 auto;
+  margin-top: 30px;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 12px -1px #141414;
+  &__title {
+    color: #fafafa;
+    font-family: 'Lora', serif;
+  }
+}
+
+@media (max-width: 567px) {
+  .Auth {
+    width: 100%;
+  }
+}

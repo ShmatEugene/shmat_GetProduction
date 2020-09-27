@@ -45,6 +45,7 @@ function App() {
     <AuthContext.Provider value={{ user, setUser: setUserLogin }}>
       <div className={classes.wrapper}>
         <Header />
+        {!user && <p>You must be logged in to view the List</p>}
         {routes}
       </div>
     </AuthContext.Provider>
